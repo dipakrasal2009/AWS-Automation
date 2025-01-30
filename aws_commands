@@ -1,0 +1,24 @@
+-----------------------------AWS COMMANDS------------------------------
+#this command display the list of the all the containers
+aws ec2 describe-instances --query "Reservations[*].Instances[*].[InstanceId, State.Name, PublicIpAddress]" --output table
+
+--------------------------------------------------------------------------
+
+#this command is use to launch the instance and run it 
+aws ec2 run-instances   
+	--image-id ami-05fa46471b02db0ce   
+	--count 1   
+	--instance-type t2.micro   
+	--key-name mykey1   
+	--security-groups MySecurityGroup
+
+# and also give the all information about the containers
+
+----------------------------------------------------------------------
+
+#to run the instance using Public IP 
+
+ssh -i .ssh/mykey1.pem amazon@13.126.140.199
+
+
+
