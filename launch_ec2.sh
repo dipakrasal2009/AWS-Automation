@@ -43,10 +43,13 @@ echo "EC2 instance launched successfully!"
 echo "Instance ID: $INSTANCE_ID"
 echo "Public IP: $PUBLIC_IP"
 
-chmod 400 .ssh/mykey1.pem
+echo "you can connect the instance through this command"
+echo "ssh -i ./ssh/mykey1.pem ubuntu@<PublicIP>"
+
+#chmod 400 .ssh/mykey1.pem
 
 
 # SSH into the instance (Replace path with the correct private key file)
-echo "Connecting to the instance via SSH..."
-ssh -i .ssh/mykey1.pem ubuntu@$PUBLIC_IP
+#echo "Connecting to the instance via SSH..."
+#ssh -i .ssh/mykey1.pem ubuntu@$PUBLIC_IP
 
