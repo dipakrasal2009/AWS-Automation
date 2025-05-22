@@ -1,0 +1,13 @@
+---
+- name: Create S3 Bucket
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Create S3 bucket
+      amazon.aws.s3_bucket:
+        name: dipak-demo-bucket-001
+        state: present
+        
+
