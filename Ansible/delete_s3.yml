@@ -1,0 +1,13 @@
+---
+- name: Delete an S3 bucket
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Delete S3 bucket
+      amazon.aws.s3_bucket:
+        name: dipak-demo-bucket-001     # Replace with your bucket name
+        state: absent
+        region: ap-south-1
+
