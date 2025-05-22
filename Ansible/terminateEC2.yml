@@ -1,0 +1,13 @@
+---
+- name: Terminate EC2 instance
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Terminate EC2 instance by name tag
+      amazon.aws.ec2_instance:
+        name: "MyEC2Instance"
+        state: absent
+        wait: yes
+
