@@ -1,0 +1,24 @@
+---
+- name: Launch EC2 Instance
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Launch EC2 instance
+      amazon.aws.ec2_instance:
+        name: "MyEC2Instance"
+        key_name: "mykey1"
+        instance_type: "t2.micro"
+        image_id: "ami-0af9569868786b23a"   # Example: Amazon Linux 2
+        wait: yes
+        count: 1
+        vpc_subnet_id: "subnet-0ecbc03e0c90dea80"
+        security_group: "sg-099be700e5a2680c4"
+        tags:
+          Environment: dev
+      register: ec2_info
+
+    - debug:
+        var: ec2_info.instances[0].public_ip_address
+
