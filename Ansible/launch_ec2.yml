@@ -7,14 +7,14 @@
   tasks:
     - name: Launch EC2 instance
       amazon.aws.ec2_instance:
-        name: "MyEC2Instance"
+        name: "myec22222"
         key_name: "mykey1"
         instance_type: "t2.micro"
         image_id: "ami-0af9569868786b23a"   # Example: Amazon Linux 2
         wait: yes
-        count: 1
+        count: 3
         vpc_subnet_id: "subnet-0ecbc03e0c90dea80"
-        security_group: "sg-099be700e5a2680c4"
+        security_group: "sg-0ecb465ab8c02eb91"
         tags:
           Environment: dev
       register: ec2_info
